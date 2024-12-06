@@ -1,0 +1,17 @@
+<launch>
+    <!-- Rafael -->
+    <group ns="rafael">
+        <!-- Run MyOdom for Rafael -->
+        <node name="my_odom" pkg="my_project" type="my_odomr.py" output="screen">
+            <param name="odom_topic" value="/rafael/odom"/>
+            <param name="robot_namespace" value="rafael"/>
+        </node>
+    </group>
+
+    <!-- Roba -->
+    <!-- No namespace for Roba -->
+    <node name="my_odom" pkg="my_project" type="my_odom.py" output="screen">
+        <param name="odom_topic" value="/odom"/>
+        <param name="robot_namespace" value=""/>
+    </node>
+</launch>

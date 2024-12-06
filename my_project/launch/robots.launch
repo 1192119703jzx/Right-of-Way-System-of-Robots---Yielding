@@ -1,0 +1,19 @@
+<launch>
+    <!-- Rafael -->
+    <group ns="rafael">
+        <!-- Run BasicMover for Rafael -->
+        <node name="basic_mover" pkg="my_project" type="basic_moverr.py" output="screen">
+            <param name="odom_topic" value="/rafael/my_odom"/>
+            <param name="cmd_vel_topic" value="/rafael/cmd_vel"/>
+            <param name="robot_namespace" value="rafael"/>
+        </node>
+    </group>
+
+    <!-- Roba -->
+    <!-- No namespace for Roba -->
+    <node name="basic_mover" pkg="my_project" type="basic_mover.py" output="screen">
+        <param name="odom_topic" value="/my_odom"/>
+        <param name="cmd_vel_topic" value="/cmd_vel"/>
+        <param name="robot_namespace" value=""/>
+    </node>
+</launch>
