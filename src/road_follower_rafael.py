@@ -22,10 +22,10 @@ class RoadFollower:
     def __init__(self):
         cv2.namedWindow("window", 1)
         self.bridge = cv_bridge.CvBridge()
-        self.image_sub = rospy.Subscriber('/raspicam_node/image/compressed',
+        self.image_sub = rospy.Subscriber('/rafael/raspicam_node/image/compressed',
                                           CompressedImage,
                                           self.image_cb)
-        self.cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+        self.cmd_vel_pub = rospy.Publisher('/rafeal/cmd_vel', Twist, queue_size=1)
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
         self.PID_FOR_IMAGE = [0.3, 0.000000005, 0.5, 0.05] 
@@ -39,7 +39,7 @@ class RoadFollower:
         self.w = 0
         self.x = 0
         self.x2 = 0
-        self.plan = "left"
+        self.plan = "right"
         self.stage = "moving"
         self.pin_id = None
         self.signal = False
@@ -325,5 +325,5 @@ class RoadFollower:
 
            
 if __name__ == '__main__':
-    rospy.init_node('road_follower')
+    rospy.init_node('road_follower_rafael')
     RoadFollower().run()
