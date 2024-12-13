@@ -1,0 +1,17 @@
+<launch>
+    <node name="robot_scheduler" pkg="right_of_way_project" type="scheduler.py" output="screen"></node>
+
+    <!-- Rafael -->
+    <group ns="rafael">
+        <!-- Run load_follower for Rafael -->
+        <node name="load_follower_rafael" pkg="right_of_way_project" type="version2_rafael.py" output="screen">
+            <param name="robot_namespace" value="rafael"/>
+        </node>
+    </group>
+
+    <!-- Roba -->
+    <!-- No namespace for Roba -->
+    <node name="load_follower" pkg="right_of_way_project" type="version2.py" output="screen">
+        <param name="robot_namespace" value=""/>
+    </node>
+</launch>
